@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="SC Arbitrage Speed — public market intelligence">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081326"/><stop offset="1" stop-color="#172542"/></linearGradient></defs>
+<rect width="1200" height="360" rx="24" fill="url(#bg)"/>
+<g stroke="#33435E" opacity=".5"><path d="M0 90H1200M0 180H1200M0 270H1200M300 0V360M600 0V360M900 0V360"/></g>
+<text x="58" y="66" fill="#5EEAD4" font-size="16" font-family="Arial" letter-spacing="4">SC / LOCAL MARKET INTELLIGENCE</text>
+<text x="54" y="145" fill="#F8FAFC" font-size="56" font-family="Arial" font-weight="700">SC Arbitrage Speed</text>
+<text x="58" y="188" fill="#CBD5E1" font-size="20" font-family="Arial">Глубина рынка → маршрут перевода → расчёт объёма → персональный сигнал</text>
+<g font-family="Arial" font-size="15" text-anchor="middle"><rect x="58" y="237" width="193" height="44" rx="22" fill="#22364D"/><text x="154" y="265" fill="#5EEAD4">PUBLIC DATA</text><rect x="269" y="237" width="193" height="44" rx="22" fill="#22364D"/><text x="365" y="265" fill="#5EEAD4">ASYNC PIPELINE</text><rect x="480" y="237" width="193" height="44" rx="22" fill="#22364D"/><text x="576" y="265" fill="#5EEAD4">YOUR OWN BOT</text></g>
+<path d="M812 279L854 231L897 250L946 158L989 177L1040 92L1120 120" fill="none" stroke="#5EEAD4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+<circle cx="1040" cy="92" r="8" fill="#5EEAD4"/><text x="58" y="329" fill="#7D91AE" font-family="Arial" font-size="13">SELF-HOSTED • PYTHON • DOCKER • TELEGRAM</text></svg>

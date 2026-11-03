@@ -1,0 +1,45 @@
+name: arbitrage-sc-speed
+services:
+  bot:
+    build: .
+    env_file: .env
+    environment:
+      BOT_KIND: arbitrage
+      TZ: Europe/Moscow
+    restart: unless-stopped
+    init: true
+    depends_on:
+      mongo:
+        condition: service_healthy
+      memcached:
+        condition: service_started
+      redis:
+        condition: service_started
+    volumes:
+      - logs:/app/logs
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  memcached:
+    image: memcached:1.6-alpine
+    command: ["memcached", "-m", "256", "-I", "32m"]
+    restart: unless-stopped
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    restart: unless-stopped
+volumes:
+  mongo-data:
+  logs:

@@ -1,0 +1,703 @@
+{
+  "CC": [
+    "$CC"
+  ],
+  "MOVA": [
+    "MOVA MAINNET"
+  ],
+  "DATA": [
+    "DATA NETWORK"
+  ],
+  "APE": [
+    "APECHAIN"
+  ],
+  "ASSETHUBKUSAMA": [
+    "ASSET HUB KUSAMA"
+  ],
+  "ABCORE": [
+    "AB CORE"
+  ],
+  "PHAROS": [
+    "PHAROS MAINNET"
+  ],
+  "ZIG": [
+    "ZIGCHAIN"
+  ],
+  "WORLDCHAIN": [
+    "WORLD CHAIN"
+  ],
+  "XLAYER": [
+    "X_LAYER"
+  ],
+  "MEGAETH": [
+    "MEGA-ETH"
+  ],
+  "CANTON": [
+    "CANTON NETWORK"
+  ],
+  "STABLE": [
+    "STABLECHAIN"
+  ],
+  "BERA": [
+    "BERACHAIN"
+  ],
+  "ERC20": [
+    "ETRC20",
+    "ERC20TPY",
+    "ETH"
+  ],
+  "AMB": [
+    "AMBROSUS"
+  ],
+  "SMART": [
+    "SMART BLOCKCHAIN"
+  ],
+  "MTR": [
+    "MTRG",
+    "METER"
+  ],
+  "CRO": [
+    "CRONOSCHAIN",
+    "CRONOS"
+  ],
+  "XPR": [
+    "PROTON"
+  ],
+  "XRD": [
+    "RADIX"
+  ],
+  "WAXL": [
+    "AXELAR"
+  ],
+  "IOTX": [
+    "IOTEX"
+  ],
+  "FRA": [
+    "FRAEVM"
+  ],
+  "GT": [
+    "GATECHAIN"
+  ],
+  "OPTIMISM": [
+    "OPTIMISM(BRIDGED)",
+    "OP"
+  ],
+  "LIGHTNING": [
+    "LIGHTNING NETWORK",
+    "LIGHTNING_BTC",
+    "BTCLN"
+  ],
+  "DFI": [
+    "DEFI"
+  ],
+  "ZEN": [
+    "HORIZEN"
+  ],
+  "ROUTE": [
+    "ROUTERPROTOCOL"
+  ],
+  "METAL": [
+    "METAL L2",
+    "METALDAOL2",
+    "MTL"
+  ],
+  "CFX": [
+    "CONFLUX",
+    "CFXCORE",
+    "CFXEVM",
+    "CFX_EVM",
+    "CFXESPACE",
+    "CFXE"
+  ],
+  "DOG20": [
+    "DC"
+  ],
+  "AR": [
+    "ARWEAVE",
+    "AREA",
+    "ARK"
+  ],
+  "KDA": [
+    "KDA0"
+  ],
+  "JOY": [
+    "JOYSTREAM"
+  ],
+  "MEV": [
+    "MEVERSE"
+  ],
+  "POLYGON": [
+    "MATIC",
+    "POLYGON(BRIDGED)",
+    "POLYGON(CIRCLE)",
+    "POLYGON POS"
+  ],
+  "BEP20": [
+    "BSC",
+    "BSC_BNB"
+  ],
+  "ARBITRUM": [
+    "ARBI",
+    "ARB",
+    "ARBITRUMONE",
+    "ARBEVM",
+    "ARBONE",
+    "ARBITRUMONE(BRIDGED)",
+    "ARBITRUMONE(CIRCLE)"
+  ],
+  "AVAX-X": [
+    "XAVAX",
+    "AVAXX",
+    "AVAX",
+    "X-CHAIN",
+    "AVA",
+    "AVAXX-CHAIN"
+  ],
+  "AVAX-C": [
+    "AVAX CCHAIN",
+    "AVAX_CCHAIN",
+    "CAVAX",
+    "AVAX C-CHAIN",
+    "AVAXC",
+    "C-CHAIN",
+    "AVAXCCHAIN",
+    "AVA_C",
+    "CCHAIN",
+    "AVAXC-CHAIN"
+  ],
+  "XRP": [
+    "XRPTOKEN"
+  ],
+  "ABBC": [
+    "ABBCCOIN"
+  ],
+  "TRC20": [
+    "TRX"
+  ],
+  "POLKADOT": [
+    "DOT"
+  ],
+  "ICX": [
+    "ICON"
+  ],
+  "CTXC": [
+    "CORTEX"
+  ],
+  "ENJ": [
+    "ENJIN RELAY CHAIN",
+    "ENJIN"
+  ],
+  "FTN": [
+    "BAHAMUT"
+  ],
+  "KCALP": [
+    "PHANTASMA"
+  ],
+  "ISLM": [
+    "HAQQ",
+    "ISLMEVM"
+  ],
+  "BEP2": [
+    "BNB"
+  ],
+  "ONE": [
+    "HARMONY"
+  ],
+  "KLAY": [
+    "KLAYTN"
+  ],
+  "CSPR": [
+    "CASPER"
+  ],
+  "CLV": [
+    "CLVEVM"
+  ],
+  "TELOS": [
+    "TLOS",
+    "TELOS(EVM)",
+    "TLOSEVM"
+  ],
+  "BDX": [
+    "BELDEX"
+  ],
+  "HMND": [
+    "HUMANODE"
+  ],
+  "BNC": [
+    "BNCDOT",
+    "BNCPOLKA",
+    "BNCKSM",
+    "BIFROST"
+  ],
+  "LUNA(TERRA)": [
+    "LUNANEW",
+    "TERRA",
+    "LUNA",
+    "LUNC",
+    "TERRA_CLASSIC",
+    "TERRA CLASSIC"
+  ],
+  "RON": [
+    "RONIN"
+  ],
+  "METIS": [
+    "METIS (TOKEN TRANSFER)",
+    "METISTOKEN"
+  ],
+  "WEMIX": [
+    "WEMIXMAINNET"
+  ],
+  "ETHW": [
+    "ETHEREUMPOW",
+    "ETHPOW",
+    "ETHEREUM POW"
+  ],
+  "ZKFAIR": [
+    "ZKFAIR-USDC"
+  ],
+  "VIC": [
+    "VICTION"
+  ],
+  "SOL": [
+    "SOLANA"
+  ],
+  "ROOT": [
+    "THE ROOT NETWORK"
+  ],
+  "CHILIZ": [
+    "CHZ",
+    "CHILIZ CHAIN",
+    "CHILIZ_CHZ"
+  ],
+  "CHZ2": [
+    "CHILIZ 2.0 CHAIN"
+  ],
+  "NEAR": [
+    "NEARPROTOCOL"
+  ],
+  "IOST": [
+    "IOSTNEW"
+  ],
+  "FIL": [
+    "FILEVM",
+    "FEVM",
+    "FIL-0X"
+  ],
+  "DC": [
+    "DOGEEVM",
+    "DOGECHAIN"
+  ],
+  "INJ": [
+    "INJECTIVE"
+  ],
+  "SXP": [
+    "SOLAR"
+  ],
+  "LYX": [
+    "LUKSO"
+  ],
+  "OSMO": [
+    "OSMOSIS"
+  ],
+  "OAS": [
+    "OASYS"
+  ],
+  "NEOX": [
+    "NEOXA"
+  ],
+  "ETN": [
+    "ETN_SC"
+  ],
+  "BLD": [
+    "AGORIC"
+  ],
+  "AKT": [
+    "AKASH"
+  ],
+  "ERG": [
+    "ERGO"
+  ],
+  "IRON": [
+    "IRONFISH"
+  ],
+  "BASE": [
+    "BASEEVM",
+    "BASE-ETH"
+  ],
+  "XETA": [
+    "XENA",
+    "XANA"
+  ],
+  "ARC20": [
+    "ALGOOPUL",
+    "ARC20OPUL",
+    "OPUL"
+  ],
+  "LAI": [
+    "LAYERAI"
+  ],
+  "NEX": [
+    "NEXA"
+  ],
+  "VANAR": [
+    "VANRY",
+    "VANARCHAIN"
+  ],
+  "INTR": [
+    "INTERLAY"
+  ],
+  "NGL": [
+    "NIGELLA"
+  ],
+  "ZK LINK": [
+    "ZKLINK",
+    "ZKLINK NOVA",
+    "ZKLETH",
+    "ZKLINK-ETH"
+  ],
+  "ZETA": [
+    "ZETACHAIN",
+    "ZETAEVM"
+  ],
+  "KAVA": [
+    "KAVAEVM",
+    "KAVA EVM CO-CHAIN",
+    "KAVAEVMTOKEN"
+  ],
+  "SIS": [
+    "ARC20SIS",
+    "BEP20SIS"
+  ],
+  "ONT": [
+    "ONG",
+    "ONTOLOGY"
+  ],
+  "NEW": [
+    "NEWTON"
+  ],
+  "BAJU": [
+    "BAJUN"
+  ],
+  "MODE": [
+    "MODEETH"
+  ],
+  "ARCH": [
+    "ARCHWAY"
+  ],
+  "ML": [
+    "MINTLAYER"
+  ],
+  "TIA": [
+    "CELESTIA"
+  ],
+  "STEP": [
+    "STEP NETWORK"
+  ],
+  "KUJI": [
+    "KUJIRA"
+  ],
+  "MERLIN": [
+    "MERLBTC",
+    "MERLIN NETWORK",
+    "MERLIN-BTC"
+  ],
+  "EVER": [
+    "EVER"
+  ],
+  "MANTLE": [
+    "MNT"
+  ],
+  "POLYX": [
+    "POLYMESH"
+  ],
+  "ZKSYNC": [
+    "ZKSYNCERA",
+    "ZKSYNC ERA",
+    "ZKSERA",
+    "ZKSYNCERA_ETH"
+  ],
+  "EVMOS": [
+    "EVMOSETH"
+  ],
+  "XEM": [
+    "NEM"
+  ],
+  "MANTA": [
+    "MANTANETWORK",
+    "MANTA NETWORK",
+    "MANTAATLANTIC",
+    "MANTAETH",
+    "MANTADOT"
+  ],
+  "KAS": [
+    "KASPA"
+  ],
+  "ZKLINK NOVA": [
+    "ZKLINKNOVA"
+  ],
+  "BLAST": [
+    "BLASTETH",
+    "BLAST-ETH"
+  ],
+  "BB": [
+    "BOUNCEBIT"
+  ],
+  "AVAIL": [
+    "AVL"
+  ],
+  "SLF": [
+    "SELF"
+  ],
+  "SMH": [
+    "SPACEMESH"
+  ],
+  "STEEM": [
+    "STEEMOLD"
+  ],
+  "CORE": [
+    "COREDAO",
+    "COREUM"
+  ],
+  "OMAX": [
+    "OMAX CHAIN"
+  ],
+  "NOM": [
+    "ONOMY"
+  ],
+  "NEO3": [
+    "NEON3",
+    "N3",
+    "NEO",
+    "GAS"
+  ],
+  "SC": [
+    "SCRT"
+  ],
+  "NODL": [
+    "NODLE"
+  ],
+  "DYM": [
+    "DYMENSION",
+    "DYMEVM"
+  ],
+  "POKT": [
+    "POCKETNETWORK"
+  ],
+  "EOS": [
+    "EOSEVM",
+    "EOSIO"
+  ],
+  "ADA": [
+    "CARDANO"
+  ],
+  "STRAX": [
+    "STRATISEVM"
+  ],
+  "EGLD": [
+    "ELROND"
+  ],
+  "ELA": [
+    "ESC",
+    "ELAEVM",
+    "HRC20ELA"
+  ],
+  "VLX": [
+    "VLX(EVM)"
+  ],
+  "NTRN": [
+    "NEUTRON"
+  ],
+  "NIBI": [
+    "NIBIRU"
+  ],
+  "APT": [
+    "APTOS"
+  ],
+  "XLM": [
+    "STELLA",
+    "STELLARLUMENS"
+  ],
+  "TENET": [
+    "TENETEVM"
+  ],
+  "BOBA": [
+    "BOBAEVM"
+  ],
+  "SYS": [
+    "SYSCOINNEVM",
+    "SYSCOIN UTXO",
+    "SYSNEVM",
+    "SYSCOIN ROLLUX"
+  ],
+  "SDN": [
+    "SDNEVM"
+  ],
+  "KSM": [
+    "KUSAMA"
+  ],
+  "ARBNOVA": [
+    "ARBITRUM_NOVA",
+    "ARBINOVA"
+  ],
+  "CANTO": [
+    "CANTOEVM",
+    "CANTO-EVM",
+    "CANTO-COSMOS"
+  ],
+  "FTM": [
+    "FANTOM"
+  ],
+  "ACA": [
+    "ACALA",
+    "ACALATOKEN"
+  ],
+  "FLR": [
+    "FLARE"
+  ],
+  "GLMR": [
+    "MOONBEAM",
+    "GLRM"
+  ],
+  "RUNE": [
+    "THORCHAIN"
+  ],
+  "STX": [
+    "STACKS"
+  ],
+  "ROSE": [
+    "OASIS"
+  ],
+  "TAIKO": [
+    "TAIKOETH",
+    "TAIKO-ETH"
+  ],
+  "AURORA": [
+    "AURORAEVM"
+  ],
+  "VET": [
+    "VECHAIN"
+  ],
+  "EWT": [
+    "ENERGY WEB CHAIN(EWC)",
+    "EWC"
+  ],
+  "STARKNET": [
+    "STARK",
+    "STRKETH",
+    "STARK-ETH"
+  ],
+  "RSK": [
+    "RBTC"
+  ],
+  "BTC": [
+    "BTCBRC"
+  ],
+  "RUNES": [
+    "RUNES-BTC",
+    "BTCRUNES"
+  ],
+  "THETA": [
+    "THETATOKEN"
+  ],
+  "QTUM": [
+    "QUANTUM"
+  ],
+  "SEI": [
+    "SEIEVM"
+  ],
+  "BCH": [
+    "BCHN",
+    "BCHA"
+  ],
+  "XDC": [
+    "XDCNETWORKXDC"
+  ],
+  "WAX": [
+    "WAXP",
+    "WAX1"
+  ],
+  "NULS": [
+    "NULSEVM"
+  ],
+  "ATOM": [
+    "COSMOS",
+    "ATOM1"
+  ],
+  "LINEA": [
+    "LINEAETH",
+    "LINEA-ETH"
+  ],
+  "ASTR": [
+    "ASTREVM",
+    "ASTAR"
+  ],
+  "OMN": [
+    "OMEGA CHAIN",
+    "OMEGA"
+  ],
+  "FNSA": [
+    "FINSCHIA"
+  ],
+  "3ULL": [
+    "PLAYA3ULL"
+  ],
+  "VSC": [
+    "VYVOCOIN"
+  ],
+  "MTC": [
+    "METATIME",
+    "METABIT"
+  ],
+  "DIS": [
+    "DISCHAIN"
+  ],
+  "GMMT": [
+    "GIANTMAMMOTH"
+  ],
+  "LSK": [
+    "LISK"
+  ],
+  "PHA": [
+    "PHAKSM",
+    "KHALA"
+  ],
+  "ETHF": [
+    "ETHFAIR"
+  ],
+  "MPC": [
+    "PARTISIA"
+  ],
+  "NEER": [
+    "PIONEER"
+  ],
+  "PSL": [
+    "PASTEL"
+  ],
+  "ACT": [
+    "ACT(EVM)"
+  ],
+  "PDEX": [
+    "POLKADEX"
+  ],
+  "XDB": [
+    "XDB CHAIN"
+  ],
+  "CRU": [
+    "CRUST"
+  ],
+  "NIM": [
+    "NIMIQ"
+  ],
+  "TAO": [
+    "BITTENSOR"
+  ],
+  "KLV": [
+    "KLEVER"
+  ],
+  "XEC": [
+    "ECASH"
+  ],
+  "XYM": [
+    "SYMBOL"
+  ]
+}

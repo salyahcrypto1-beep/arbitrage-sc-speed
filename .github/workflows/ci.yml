@@ -1,0 +1,29 @@
+name: Validate portable bot
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt pytest pytest-asyncio
+      - run: python -m compileall -q portable newbot
+      - run: PYTHONPATH=. python -m pytest -q
+      - name: Compose configuration and image
+        run: |
+          cp .env.example .env
+          docker compose config --quiet
+          docker compose build
+      - name: Isolated stack integration
+        run: |
+          docker compose up -d --wait mongo memcached redis
+          docker compose run --rm --no-deps bot python tests/smoke_stack.py
+      - name: Cleanup
+        if: always()
+        run: docker compose down -v
+
