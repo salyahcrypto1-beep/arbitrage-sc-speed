@@ -151,10 +151,10 @@ class Gate(Constants.Gate):
         match key:
             case 'cur':
                 connector = aiohttp_socks.ProxyConnector.from_url(Constants.proxies['cur'][random.randint(0, len(Constants.proxies['cur'])-1)])
-                session = aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=20), connector=connector,timeout=timeout)
+                session = aiohttp.ClientSession(connector=connector,timeout=timeout)
             case 'books':
                 connector = aiohttp_socks.ProxyConnector.from_url(Constants.proxies['books20'][random.randint(0, len(Constants.proxies['books20'])-1)])
-                session = aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=20), connector=connector,timeout=timeout)
+                session = aiohttp.ClientSession(connector=connector,timeout=timeout)
             case None:
                 session = aiohttp.ClientSession()
         try:  

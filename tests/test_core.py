@@ -93,3 +93,13 @@ def test_active_mm_keeps_asks_and_bids_separate():
         await bot.second_stage_comparison([[9, 8]], [[8, 8]], 'X', 'A', 'bids')
         assert bot.initial_filtered_orders['X|A'] == {'asks': [[10, 7]], 'bids': [[9, 8]]}
     asyncio.run(run())
+
+
+def test_book_freshness_removes_old_and_future_timestamps():
+    from portable.freshness import fresh_books
+    now = datetime.now()
+    books = {'fresh': {'lastUpdate': now.isoformat()},
+             'old': {'lastUpdate': (now-timedelta(minutes=5)).isoformat()},
+             'future': {'lastUpdate': (now+timedelta(minutes=5)).isoformat()},
+             'missing': {}}
+    assert list(fresh_books(books)) == ['fresh']

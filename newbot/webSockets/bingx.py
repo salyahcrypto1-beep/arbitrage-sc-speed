@@ -208,7 +208,7 @@ class BingXOrderBookUpdater:
                 )
 
             try:
-                async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=20), connector=conn,timeout=aiohttp.ClientTimeout(total=3600, connect=10, sock_read=300)) as session:
+                async with aiohttp.ClientSession(connector=conn,timeout=aiohttp.ClientTimeout(total=3600, connect=10, sock_read=300)) as session:
                     channel = {"id": "e745cd6d-d0f6-4a70-8d5a-043e4c741b40", "reqType": "sub", "dataType": f"{trading_pair}@depth50"}
                     await self.handle_connection(channel, session)
 

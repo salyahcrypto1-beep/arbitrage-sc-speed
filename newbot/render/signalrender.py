@@ -449,7 +449,10 @@ class MathSignalsBot:
         while True:
             try:
                 raw = cache.get('blocks')
-                if raw and raw != self.blocks_raw:
+                if not raw:
+                    self.local_block1_snapshot = {}
+                    self.blocks_raw = None
+                elif raw != self.blocks_raw:
                     data = pickle.loads(gzip.decompress(raw))
                     new_snapshot = {}
                     for key in data:

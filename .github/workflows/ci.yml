@@ -25,5 +25,7 @@ jobs:
           docker compose run --rm --no-deps bot python tests/smoke_stack.py
       - name: Cleanup
         if: always()
-        run: docker compose down -v
+        run: |
+          test -f .env || cp .env.example .env
+          docker compose down -v
 

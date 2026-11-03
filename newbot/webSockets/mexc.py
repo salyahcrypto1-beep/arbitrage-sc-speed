@@ -185,7 +185,7 @@ class MEXCOrderBookUpdater:
                 connector = aiohttp_socks.ProxyConnector.from_url(proxy_url)
 
                 timeout = aiohttp.ClientTimeout(total=0, sock_connect=20, sock_read=0)
-                async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=20), connector=connector, timeout=timeout) as session:
+                async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:
                     async with session.ws_connect(WS_ENDPOINT, autoping=False, heartbeat=None) as ws:
                         logger.info(f"Connected to WebSocket for {symbol}")
                         connected = True

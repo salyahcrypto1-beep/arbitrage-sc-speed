@@ -107,8 +107,7 @@ class ArbitrageBot:
     async def update_cache(self):
         try:
             # Записываем все данные в кэш под одним ключом 'blocks'
-            if len(self.local_block_array) > 0:
-                cache.set('blocks', gzip.compress(pickle.dumps(self.local_block_array)), 10)  # TTL 10 секунд
+            cache.set('blocks', gzip.compress(pickle.dumps(self.local_block_array)), 10)  # TTL 10 секунд
 
             # Очищаем локальный массив
             self.local_block_array.clear()
