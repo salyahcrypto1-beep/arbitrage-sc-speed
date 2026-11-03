@@ -23,7 +23,9 @@ def main():
     client.renderBase.black_list.update_one({'_id': 'local'}, {'$setOnInsert': {'list': []}}, upsert=True)
     client.close()
     kind = os.getenv('BOT_KIND', 'arbitrage')
-    jobs = [('public-feeds', ['-m', 'portable.feeds'], ROOT)]
+    from portable.public_exchange import configured_exchanges
+    jobs = [('public-metadata', ['-m', 'portable.feeds'], ROOT)]
+    jobs += [('ws-' + ex.id, ['-m', 'portable.native_ws', ex.id], ROOT) for ex in configured_exchanges()]
     if kind == 'arbitrage':
         jobs += [(name, [str(ROOT / 'newbot/render' / (name + '.py'))], ROOT / 'newbot/render')
                  for name in ['combinations_render', 'signalrender', 'usersrendersignal']]

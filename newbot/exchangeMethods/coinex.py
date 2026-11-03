@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 from asyncio import gather
 import hmac
 from hashlib import sha256
@@ -282,4 +281,3 @@ class CoinEx(Constants.CoinEx):
                 
         except Exception as e:
             logging.error(f'CoinEx foreach error:{e}')
-

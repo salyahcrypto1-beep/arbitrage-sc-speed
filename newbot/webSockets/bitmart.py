@@ -108,7 +108,6 @@ class BitmartOrderBookManager:
                 break
 
     async def connect_and_subscribe(self, symbols):
-        # Прямой режим: пул прокси мёртв, Bitmart отвечает напрямую.
         # Прокси передаётся аргументом proxy=, общий патч сюда не достаёт.
         # (в старой ветке был выход за границу списка: randint включает
         #  верхнюю границу, поэтому здесь len-1)

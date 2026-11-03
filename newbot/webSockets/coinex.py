@@ -92,9 +92,9 @@ class CoinExOrderBookUpdater:
         try:
             data = json.loads(message)
             if "method" in data and data["method"] == "depth.update":
-                params = data["params"]
-                is_full = params[0]
-                depth_data = params[1]
+                payload = data["data"]
+                is_full = payload["is_full"]
+                depth_data = payload["depth"]
                 
                 
                 if is_full:
@@ -119,7 +119,7 @@ class CoinExOrderBookUpdater:
                     param = {
             "id": int(time.time() * 1000),
             "method": "server.ping",
-            "params": []
+            "params": {}
         }
                     await ws.send_str(json.dumps(param))
                     logging.info(f"Sent PING for {pair}")
@@ -143,12 +143,12 @@ class CoinExOrderBookUpdater:
                 )
 
                 async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=20), connector=conn) as session:
-                    async with session.ws_connect('wss://socket.coinex.com/') as ws:
+                    async with session.ws_connect('wss://socket.coinex.com/v2/spot') as ws:
                         logging.info(f"Connected to WebSocket for {symbol}")
                         subscribe_message = {
                                                 "id": int(time.time() * 1000),
                                                 "method": "depth.subscribe",
-                                                "params": [symbol, 20, "0",True]        
+                                                "params": {"market_list": [[symbol, 20, "0", True]]}
                                             }
                         logging.info(f"Sending subscription message for {symbol}: {subscribe_message}")
                         await ws.send_str(json.dumps(subscribe_message))
@@ -166,6 +166,8 @@ class CoinExOrderBookUpdater:
                                 return
                             if msg.type == aiohttp.WSMsgType.TEXT:
                                 await self.handle_message(symbol, msg.data)
+                            elif msg.type == aiohttp.WSMsgType.BINARY:
+                                await self.handle_message(symbol, gzip.decompress(msg.data).decode())
                             elif msg.type == aiohttp.WSMsgType.ERROR:
                                 logging.error(f'WebSocket error for {symbol}: {ws.exception()}')
                         await ping_task

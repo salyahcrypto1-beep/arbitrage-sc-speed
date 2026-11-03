@@ -13,8 +13,8 @@ from portable.public_exchange import configured_exchanges
 async def network():
     async def check(ex):
         try:
-            book = await asyncio.wait_for(ex.fetchOrderBookBot('BTC/USDT'), timeout=35)
-            return {'exchange': ex.id, 'public_book': bool(book and book['asks'] and book['bids'])}
+            tickers = await asyncio.wait_for(ex.client.fetch_tickers(), timeout=35)
+            return {'exchange': ex.id, 'public_tickers': len(tickers)}
         except Exception as exc:
             return {'exchange': ex.id, 'error': type(exc).__name__, 'hint': 'Check network, DNS, VPN and exchange availability'}
         finally: await ex.close()

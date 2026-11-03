@@ -17,8 +17,6 @@ from redis import asyncio as aioredis
 sys.path.append(os.path.join(os.getcwd(),'..'))
 sys.path.append('/app/newbot/exchangeMethods')
 sys.path.append('/app/newbot/exchangeMethods/manage')
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods')
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from exchanges import exchanges

@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 import asyncio
 import time
 import random
@@ -364,4 +363,3 @@ class Bybit(Constants.Bybit):
                 self._currency_attempt = 0
                 logging.error(f'Error raised in currency Bybit: {e} (пропускаем биржу в этом цикле)')
             return
-

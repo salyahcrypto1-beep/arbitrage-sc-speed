@@ -1,4 +1,4 @@
-"""Public REST fallback for exchanges absent from the installed CCXT release."""
+"""Native public REST market discovery for CoinEx and BitMart."""
 import asyncio
 import time
 import aiohttp

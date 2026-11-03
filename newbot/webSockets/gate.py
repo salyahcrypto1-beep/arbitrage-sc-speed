@@ -122,7 +122,6 @@ class GateOrderBookUpdater:
 
     async def handle_connection(self, symbol):
         try:
-            # Прямой режим: пул прокси мёртв, Gate отвечает напрямую.
             # Прокси передаётся аргументом proxy=, общий патч сюда не достаёт.
             proxy = None if os.environ.get("BOT_DIRECT_CONNECTION") == "1" else random.choice(self.proxies)
             async with websockets.connect(self.WS_URL,proxy=proxy) as ws:

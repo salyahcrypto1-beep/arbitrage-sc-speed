@@ -2,8 +2,7 @@
 import asyncio
 import os
 import time
-import ccxt.pro as ccxt
-from portable.rest_fallback import RestClient
+from portable.native_rest import NativeRest
 
 EXCHANGES = {'kucoin': 'Kucoin', 'gate': 'Gate', 'bitget': 'Bitget',
              'mexc': 'MEXC Global', 'bybit': 'Bybit', 'bingx': 'BingX',
@@ -28,11 +27,7 @@ class PublicExchange:
     @property
     def client(self):
         if self._client is None:
-            self._client = getattr(ccxt, self.id)({
-                'enableRateLimit': True, 'timeout': 20000,
-                'options': {'defaultType': 'spot', 'fetchCurrencies': False},
-                'newUpdates': True,
-            }) if hasattr(ccxt, self.id) else RestClient(self.id)
+            self._client = NativeRest(self.id)
             self._lock = asyncio.Lock()
         return self._client
 
@@ -62,12 +57,17 @@ class PublicExchange:
             return self._tickers
 
     async def fetchOrderBookBot(self, symbol):
-        markets = await self.markets()
-        unified = next((s for s in markets if native(self.name, s) == symbol or s == symbol), None)
-        if unified is None:
-            return None
-        result = await self.client.fetch_order_book(unified, limit=20)
-        return {'asks': result['asks'], 'bids': result['bids']}
+        import gzip, pickle
+        from pymemcache.client.base import Client
+        from portable.freshness import book_is_fresh
+        key = native(self.name, symbol)
+        cache = Client(('memcached',11211),connect_timeout=2,timeout=2)
+        try:
+            raw = cache.get(f'orderbook_{self.name}_full_snapshot')
+            book = (pickle.loads(gzip.decompress(raw)) if raw else {}).get(key)
+            return book if book and book_is_fresh(book) else None
+        finally:
+            cache.close()
 
     async def fetchOrderBook(self, symbol, session=None):
         return await self.fetchOrderBookBot(symbol)

@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 from asyncio import gather
 import random
 import hmac
@@ -479,4 +478,3 @@ class HTX(Constants.HTX):
         except Exception as e:
             logging.exception(f'HTX currency raised error:{e}. Try again...')
             await self.currency(symbols,sem)
-        

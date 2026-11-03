@@ -89,49 +89,16 @@ async def metadata(exchange, symbols, mongo, session):
     log.info('%s: %d markets; public network metadata for %d coins', exchange.name, len(symbols), len(networks))
 
 
-async def watch(exchange, symbol, books):
-    delay = 1
-    while True:
-        try:
-            if exchange.client.has.get('watchOrderBook'):
-                book = await asyncio.wait_for(exchange.client.watch_order_book(symbol, limit=20), timeout=45)
-            else:
-                book = await exchange.client.fetch_order_book(symbol, limit=20)
-                await asyncio.sleep(5)
-            bids, asks = book.get('bids', []), book.get('asks', [])
-            if not bids or not asks: continue
-            books[native(exchange.name, symbol)] = {
-                'bids': [list(x[:2]) for x in bids[:20]], 'asks': [list(x[:2]) for x in asks[:20]],
-                'lastUpdate': datetime.now().isoformat(), '_received': time.monotonic()}
-            delay = 1
-        except asyncio.CancelledError:
-            raise
-        except Exception as exc:
-            books.pop(native(exchange.name, symbol), None)
-            log.warning('%s %s: %s; retry in %ss', exchange.name, symbol, type(exc).__name__, delay)
-            await asyncio.sleep(delay)
-            delay = min(60, delay * 2)
-
-
-async def publish(exchange, books, cache):
-    while True:
-        fresh = {s: {k: v for k, v in b.items() if k != '_received'} for s, b in books.items()
-                 if time.monotonic() - b['_received'] <= BOOK_TTL}
-        blob = gzip.compress(pickle.dumps(fresh), compresslevel=1)
-        # The original MM code calls MEXC "MEXC", arbitrage calls it "MEXC Global".
-        keys = [f'orderbook_{exchange.name}_full_snapshot']
-        if exchange.name == 'MEXC Global': keys.append('orderbook_MEXC_full_snapshot')
-        for key in keys: cache.set(key, blob, expire=BOOK_TTL)
-        await asyncio.sleep(1)
-
-
 async def run_exchange(exchange, mongo):
     cache = Client(('memcached', 11211), connect_timeout=5, timeout=5)
     tasks = []
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=25)) as session:
         try:
-            markets = await exchange.markets()
-            requested = [s.strip() for s in os.getenv('SYMBOLS', '').split(',') if s.strip()]
+            requested = [s.strip().upper() for s in os.getenv('SYMBOLS', '').split(',') if s.strip()]
+            if any(not s.endswith('/USDT') or len(s.split('/')) != 2 for s in requested):
+                raise ValueError('SYMBOLS must contain BASE/USDT pairs')
+            markets = ({s:{'spot':True,'quote':'USDT','active':True} for s in requested}
+                       if requested else await exchange.markets())
             symbols = sorted(s for s, m in markets.items() if m.get('spot') and m.get('quote') == 'USDT'
                              and m.get('active') is not False and (not requested or s in requested))
             # Prefer liquid pairs on small computers rather than arbitrary alphabetical tokens.
@@ -142,6 +109,7 @@ async def run_exchange(exchange, mongo):
                 except Exception:
                     log.warning('%s: volume ranking unavailable; using sorted symbols', exchange.name)
                 symbols = symbols[:MAX_SYMBOLS]
+            await mongo.renderBase.tradePairs.update_one({'id':exchange.name}, {'$set':{'tokens':[native(exchange.name,s) for s in symbols]}},upsert=True)
             async def refresh_metadata():
                 while True:
                     try: await metadata(exchange, symbols, mongo, session)
@@ -152,9 +120,7 @@ async def run_exchange(exchange, mongo):
                                 {'$set': {f'currency.{exchange.name}': {'networks': {}}}}, upsert=True)
                         log.warning('%s metadata unavailable: %s', exchange.name, type(exc).__name__)
                     await asyncio.sleep(300)
-            books = {}
-            tasks = [asyncio.create_task(watch(exchange, s, books)) for s in symbols]
-            tasks += [asyncio.create_task(publish(exchange, books, cache)), asyncio.create_task(refresh_metadata())]
+            tasks = [asyncio.create_task(refresh_metadata())]
             await asyncio.gather(*tasks)
         finally:
             for task in tasks: task.cancel()

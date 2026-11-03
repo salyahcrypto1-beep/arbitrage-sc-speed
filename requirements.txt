@@ -1,5 +1,4 @@
 # Validated runtime dependencies; Python 3.12.
-ccxt==4.5.91
 motor==3.7.1
 pymongo==4.19.0
 pymemcache==4.0.0
@@ -12,4 +11,6 @@ aiofiles==25.1.0
 diskcache==5.6.3
 numpy==2.5.4
 jsons==1.6.3
-protobuf==5.29.6
+protobuf==6.31.1
+websockets==15.0.1
+websocket-client==1.9.0

@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 from datetime import datetime as datetime
 from asyncio import gather
 import asyncio
@@ -273,8 +272,3 @@ class BingX(Constants.BingX):
             return f"{paramsStr}&timestamp={int(time.time() * 1000)}"
         else:
             return f"{paramsStr}timestamp={int(time.time() * 1000)}"
-
-
-
-         
- 

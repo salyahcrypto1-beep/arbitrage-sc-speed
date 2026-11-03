@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 from datetime import datetime, timezone
 import asyncio
 import json
@@ -444,5 +443,3 @@ class OKX(Constants.OKX):
             res =  await session.request('GET',url=req, headers=headers) 
             result  =await res.text()
             return result
-
-

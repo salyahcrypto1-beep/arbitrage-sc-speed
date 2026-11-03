@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 import asyncio
 import random
 import hmac
@@ -223,4 +222,3 @@ class Bitmart(Constants.Bitmart):
             await asyncio.gather(*[self.forNetworkList(i, symbol) for i in allSymbolsCurrency['currencies']])
         except Exception as e:
             print("forEverySymbolCurr:", e)
-

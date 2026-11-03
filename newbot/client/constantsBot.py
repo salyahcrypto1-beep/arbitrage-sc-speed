@@ -30,12 +30,8 @@ class Constants:
     client = motor.motor_asyncio.AsyncIOMotorClient(CONNECTION_STRING, serverSelectionTimeoutMS=10000)
     dbOrderBooks = client.orderbooks.orderbooks
     dbMathPairs = client.arbitrage.data
-    dbYellow = client.arbitrage.yellowList
-    dbBlack = client.arbitrage.blackList
     db = client.userdata.user
     cmc = client.renderBase.cmc
-    yellowTokens = ['XETA/USDT', 'ZKPEPE/USDT', 'ZK/USDT', 'NOT/USDT', 'TON/USDT', 'TRUMP/USDT', 'TAMA/USDT', 'PBR/USDT', 'ARRR/USDT', 'AURA/USDT', 'VMPX/USDT', 'AGI/USDT', 'MAN/USDT', 'MERL/USDT', 'LSK/USDT', 'LUNC/USDT', 'KMD/USDT', 'MAS/USDT', 'BDX/USDT']
+    yellowTokens = []
     blackTokens = []
     spotFees={'BingX':{'maker':0.1,'taker':0.1},'Bitmart':{'maker':0.6,'taker':0.6},'Bybit':{'maker':0.1,'taker':0.1},'Bitget':{'maker':0.08,'taker':0.08},'HTX':{'maker':0.2,'taker':0.2},'CoinEx':{'maker':0.2,'taker':0.2},'OKX':{'maker':0.14,'taker':0.23},'Gate':{'maker':0.1,'taker':0.1},'MEXC Global':{'maker':0,'taker':0.1},'Kucoin':{'maker':0.1,'taker':0.1}}
-
-    

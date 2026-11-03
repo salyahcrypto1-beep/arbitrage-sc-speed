@@ -182,7 +182,7 @@ class MEXCOrderBookUpdater:
         while True:
             try:
                 proxy_url = random.choice(self.proxies)
-                connector = aiohttp_socks.ProxyConnector.from_url(proxy_url)
+                connector = aiohttp_socks.ProxyConnector.from_url(proxy_url) if proxy_url else aiohttp.TCPConnector()
 
                 timeout = aiohttp.ClientTimeout(total=0, sock_connect=20, sock_read=0)
                 async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:

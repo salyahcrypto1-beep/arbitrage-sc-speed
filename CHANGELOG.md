@@ -1,3 +1,14 @@
+## Native transport and local-client revision
+
+- Removed introduced CCXT transport/dependency; restored original exchange-specific WebSocket classes in the launch graph.
+- Added explicit public REST ticker discovery and native snapshot compatibility (MEXC aliases, OKX complete snapshots).
+- Removed the unused standalone CCXT auto-trading experiment from the distribution.
+- Removed inherited admin menus, add/delete subscriber states, global-list mutation commands, hardcoded caution lists and author workstation paths.
+- Local pairing now authorizes one user; middleware protects every message and callback.
+- Replaced architecture overview with source-linked detailed control/data flow, math, cache invalidation, user indexing, and both MM strategies.
+- Updated the native CoinEx subscription/parser to public v2 after live verification; fixed direct-connection MEXC connector.
+- Native modules added to import checks; protobuf runtime aligned with MEXC generated code.
+
 # Changes
 
 ## 2026-11-03 — portable local edition

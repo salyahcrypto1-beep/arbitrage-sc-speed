@@ -103,7 +103,6 @@ class BitgetOrderBookUpdater:
 
     async def create_connection(self, trading_pairs):
         try:
-            # Прямой режим: пул прокси мёртв (оплата не прошла), а Bitget
             # отвечает с этого сервера напрямую. Прокси здесь передаётся
             # аргументом proxy=, а не через ProxyConnector, поэтому общий
             # патч прямого режима сюда не достаёт — гасим явно.

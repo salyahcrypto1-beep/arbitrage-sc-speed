@@ -58,8 +58,8 @@ class OKXOrderBookUpdater:
 
             if "data" in data and isinstance(data["data"], list) and len(data["data"]) > 0:
                 book_data = data["data"][0]
-                bids = [[float(price), float(quantity)] for price, quantity in book_data.get("bids", [])]
-                asks = [[float(price), float(quantity)] for price, quantity in book_data.get("asks", [])]
+                bids = [[float(price), float(quantity)] for price, quantity, *_ in book_data.get("bids", [])]
+                asks = [[float(price), float(quantity)] for price, quantity, *_ in book_data.get("asks", [])]
                 time_stamp = datetime.now()
                 self.order_book_updates[symbol] = {
                     "bids": bids,
@@ -99,7 +99,7 @@ class OKXOrderBookUpdater:
                             "op": "subscribe",
                             "args": [
                                 {
-                                    "channel": "books",
+                                    "channel": "books5",
                                     "instId": symbol
                                 }
                             ]

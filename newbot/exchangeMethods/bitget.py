@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 import asyncio
 import random
 import hmac
@@ -275,5 +274,3 @@ class Bitget(Constants.Bitget):
         except Exception as e:
             logging.exception(f'Error raised while currency was called Bitget:{e}. Try again...')
             await self.currency(symbols,sem)
-
-

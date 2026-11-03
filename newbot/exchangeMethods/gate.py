@@ -2,7 +2,6 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-sys.path.append('D:/Projects/scArbitGit/scArbit/scArbit/serverVersion/stepback/new/exchangeMethods/manage')
 from asyncio import gather
 import time
 import random
@@ -349,4 +348,4 @@ class Gate(Constants.Gate):
 #     await bingx.currency(symbols['Gate'],asyncio.Semaphore(500))
 
 # if __name__ == '__main__':
-#     asyncio.run(main())  
+#     asyncio.run(main())

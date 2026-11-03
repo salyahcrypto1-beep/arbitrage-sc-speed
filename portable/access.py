@@ -41,10 +41,27 @@ async def pair_user(message, bot):
             return False
         try: database.local_owner.insert_one({'_id': 'owner', 'chat_id': chat_id})
         except DuplicateKeyError: pass
-    if not is_owner(chat_id) and not database.user.find_one({'id': chat_id}):
-        await bot.send_message(chat_id, 'Доступ выдаёт владелец этой локальной установки.')
+    if not is_owner(chat_id):
+        await bot.send_message(chat_id, 'Это персональный бот другой локальной установки.')
         return False
     database.user.update_one({'id': chat_id}, {'$setOnInsert': defaults(chat_id)}, upsert=True)
     database.mm_user.update_one({'id': chat_id}, {'$setOnInsert': {
         'id': chat_id, 'monitoring': False, 'saveList': [], 'blackList': []}}, upsert=True)
     return True
+
+
+from telebot.asyncio_handler_backends import BaseMiddleware, CancelUpdate
+
+class LocalAccessMiddleware(BaseMiddleware):
+    """A single paired local user; no inherited admin role or subscriber management."""
+    def __init__(self):
+        self.update_types=['message','callback_query']
+    async def pre_process(self, update, data):
+        message=getattr(update,'message',None) or update
+        callback=hasattr(update,'message')
+        if not callback and (getattr(message,'text','') or '').split(maxsplit=1)[0:1] == ['/start']:
+            return
+        if message.chat.type != 'private' or not is_owner(message.chat.id): return CancelUpdate()
+        if callback and update.from_user.id != message.chat.id: return CancelUpdate()
+    async def post_process(self, update, data, exception):
+        pass
